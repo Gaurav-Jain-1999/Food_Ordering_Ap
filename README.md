@@ -13,127 +13,136 @@ DataBase Used: SQLite
 
 ## UXML Diagram
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<UML>
-    <Class name="CustomerController">
-        <Field name="txtUsername" type="TextField"/>
-        <Field name="txtPassword" type="PasswordField"/>
-        <Field name="txtName" type="TextField"/>
-        <Field name="txtSurname" type="TextField"/>
-        <Field name="txtCard" type="TextField"/>
-        <Method name="login" returnType="void"/>
-        <Method name="register" returnType="void"/>
-        <Method name="makeOrder" returnType="void"/>
-        <Method name="viewOrders" returnType="void"/>
-        <Method name="viewProfile" returnType="void"/>
-        <Method name="logout" returnType="void"/>
-        <Method name="navigateTo" returnType="void"/>
-    </Class>
-    <Class name="RegistrationController">
-        <Field name="username" type="TextField"/>
-        <Field name="password" type="TextField"/>
-        <Field name="name" type="TextField"/>
-        <Field name="surname" type="TextField"/>
-        <Field name="mobile" type="TextField"/>
-        <Field name="resultConsole" type="TextArea"/>
-        <Method name="register" returnType="void"/>
-        <Method name="return_back" returnType="void"/>
-    </Class>
-    <Class name="ProfileController">
-        <Field name="username" type="TextField"/>
-        <Field name="password" type="TextField"/>
-        <Field name="name" type="TextField"/>
-        <Field name="surname" type="TextField"/>
-        <Field name="mobile" type="TextField"/>
-        <Field name="resultConsole" type="TextArea"/>
-        <Field name="cusId" type="int"/>
-        <Method name="setCusId" returnType="void"/>
-        <Method name="loadProfile" returnType="void"/>
-        <Method name="updateProfile" returnType="void"/>
-        <Method name="return_back" returnType="void"/>
-    </Class>
-    <Class name="Order">
-        <Field name="orderId" type="int"/>
-        <Field name="orderDetails" type="String"/>
-        <Field name="orderTime" type="String"/>
-        <Field name="orderStatus" type="String"/>
-        <Method name="getOrderId" returnType="int"/>
-        <Method name="getOrderDetails" returnType="String"/>
-        <Method name="getOrderTime" returnType="String"/>
-        <Method name="getOrderStatus" returnType="String"/>
-    </Class>
-    <Class name="OrdersController">
-        <Field name="activeOrdersTable" type="TableView"/>
-        <Field name="activeOrderDetailsColumn" type="TableColumn"/>
-        <Field name="pastOrdersTable" type="TableView"/>
-        <Field name="pastOrderDetailsColumn" type="TableColumn"/>
-        <Field name="cancelOrderButton" type="Button"/>
-        <Field name="collectOrderButton" type="Button"/>
-        <Field name="cusId" type="int"/>
-        <Method name="setCusId" returnType="void"/>
-        <Method name="loadActiveOrders" returnType="void"/>
-        <Method name="loadPastOrders" returnType="void"/>
-        <Method name="initialize" returnType="void"/>
-        <Method name="cancelOrder" returnType="void"/>
-        <Method name="collectOrder" returnType="void"/>
-    </Class>
-    <Class name="Burrito">
-        <Field name="batchPrepTime" type="int"/>
-        <Field name="batchSize" type="int"/>
-        <Method name="getPreparationTime" returnType="int"/>
-        <Method name="getActualQuantityCooked" returnType="int"/>
-    </Class>
-    <Class name="Fries">
-        <Field name="prepTimeForOneServe" type="int"/>
-        <Field name="batchSize" type="int"/>
-        <Method name="getPreparationTime" returnType="int"/>
-        <Method name="getActualQuantityCooked" returnType="int"/>
-    </Class>
-    <Class name="Soda">
-        <Field name="unitPrice" type="double"/>
-        <Field name="quantity" type="int"/>
-    </Class>
-    <Class name="Restaurant">
-        <Field name="name" type="String"/>
-        <Field name="priceMap" type="HashMap<String, Double>"/>
-        <Field name="remainedFries" type="int"/>
-        <Field name="allOrders" type="LinkedList<Order>"/>
-        <Method name="getPrice" returnType="double"/>
-        <Method name="updatePrice" returnType="void"/>
-        <Method name="updateRemainingServes" returnType="boolean"/>
-        <Method name="addOrderToHistory" returnType="void"/>
-    </Class>
-    <Class name="NewOrderController">
-        <Field name="burritoQuantity" type="TextField"/>
-        <Field name="friesQuantity" type="TextField"/>
-        <Field name="sodaQuantity" type="TextField"/>
-        <Field name="cartTextArea" type="TextArea"/>
-        <Field name="totalPriceTextField" type="TextField"/>
-        <Field name="order" type="Order"/>
-        <Field name="cusId" type="int"/>
-        <Method name="addToCart" returnType="void"/>
-        <Method name="updateCart" returnType="void"/>
-        <Method name="placeOrder" returnType="void"/>
-        <Method name="setCusId" returnType="void"/>
-    </Class>
-    <Class name="PaymentController">
-        <Field name="cardNumberField" type="TextField"/>
-        <Field name="expiryDateField" type="TextField"/>
-        <Field name="cvvField" type="TextField"/>
-        <Field name="orderTimeField" type="TextField"/>
-        <Field name="resultConsole" type="TextArea"/>
-        <Field name="order" type="Order"/>
-        <Field name="cusId" type="int"/>
-        <Method name="setCusId" returnType="void"/>
-        <Method name="setOrder" returnType="void"/>
-        <Method name="confirmPayment" returnType="void"/>
-        <Method name="validateCard" returnType="boolean"/>
-    </Class>
-    <Class name="CSVExporter">
-        <Method name="exportToCSV" returnType="void"/>
-    </Class>
-</UML>
+```mermaid
+classDiagram
+    class CustomerController {
+        TextField txtUsername
+        PasswordField txtPassword
+        TextField txtName
+        TextField txtSurname
+        TextField txtCard
+        void login()
+        void register()
+        void makeOrder()
+        void viewOrders()
+        void viewProfile()
+        void logout()
+        void navigateTo()
+    }
+
+    class RegistrationController {
+        TextField username
+        TextField password
+        TextField name
+        TextField surname
+        TextField mobile
+        TextArea resultConsole
+        void register()
+        void return_back()
+    }
+
+    class ProfileController {
+        TextField username
+        TextField password
+        TextField name
+        TextField surname
+        TextField mobile
+        TextArea resultConsole
+        int cusId
+        void setCusId()
+        void loadProfile()
+        void updateProfile()
+        void return_back()
+    }
+
+    class Order {
+        int orderId
+        String orderDetails
+        String orderTime
+        String orderStatus
+        int getOrderId()
+        String getOrderDetails()
+        String getOrderTime()
+        String getOrderStatus()
+    }
+
+    class OrdersController {
+        TableView activeOrdersTable
+        TableColumn activeOrderDetailsColumn
+        TableView pastOrdersTable
+        TableColumn pastOrderDetailsColumn
+        Button cancelOrderButton
+        Button collectOrderButton
+        int cusId
+        void setCusId()
+        void loadActiveOrders()
+        void loadPastOrders()
+        void initialize()
+        void cancelOrder()
+        void collectOrder()
+    }
+
+    class Burrito {
+        int batchPrepTime
+        int batchSize
+        int getPreparationTime()
+        int getActualQuantityCooked()
+    }
+
+    class Fries {
+        int prepTimeForOneServe
+        int batchSize
+        int getPreparationTime()
+        int getActualQuantityCooked()
+    }
+
+    class Soda {
+        double unitPrice
+        int quantity
+    }
+
+    class Restaurant {
+        String name
+        HashMap<String, Double> priceMap
+        int remainedFries
+        LinkedList<Order> allOrders
+        double getPrice()
+        void updatePrice()
+        boolean updateRemainingServes()
+        void addOrderToHistory()
+    }
+
+    class NewOrderController {
+        TextField burritoQuantity
+        TextField friesQuantity
+        TextField sodaQuantity
+        TextArea cartTextArea
+        TextField totalPriceTextField
+        Order order
+        int cusId
+        void addToCart()
+        void updateCart()
+        void placeOrder()
+        void setCusId()
+    }
+
+    class PaymentController {
+        TextField cardNumberField
+        TextField expiryDateField
+        TextField cvvField
+        TextField orderTimeField
+        TextArea resultConsole
+        Order order
+        int cusId
+        void setCusId()
+        void setOrder()
+        void confirmPayment()
+        boolean validateCard()
+    }
+
+    class CSVExporter {
+        void exportToCSV()
+    }
 ```
 
 ## User Details - Example User
