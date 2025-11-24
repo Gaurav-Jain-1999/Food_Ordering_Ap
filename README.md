@@ -1,5 +1,5 @@
 # Burrito King Application
-Overview
+Overview:
 The Burrito King Application is a JavaFX-based GUI application that allows users to place orders for burritos, fries, and soda, manage their profiles, and view their order history. The application features functionalities for user registration, login, profile updates, order management, and payment processing.
 
 ## Techinical Specification
